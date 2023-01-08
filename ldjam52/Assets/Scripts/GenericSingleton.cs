@@ -23,7 +23,11 @@
                 instance = this as T;
                 DontDestroyOnLoad (this.gameObject);
             } else {
-                Destroy (gameObject);
+                if (instance.gameObject != this.gameObject)
+                {
+                    Debug.Log("Destroying: " + gameObject.name);
+                    Destroy (gameObject);
+                }
             }
         }
     }

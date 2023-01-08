@@ -1,25 +1,19 @@
-using UnityEngine;
 
-public enum CropType
-{
-    Strawberry
-}
 
-public class HarvestableCrop : MonoBehaviour
+public class HarvestableCrop
 {
-    public Soil soil;
     private double value;
-    public int daysLeft;
-    public int MaxDays;
+    public bool isFertilized;
+    public int DaysLeft;
     public CropType cropType;
-    
-    public double Value => soil.isFertilized ? value * 1.5 : value;
-    public double DaysLeft => daysLeft;
+    public Seed seed;
 
-    public void HarvestCrop()
+    public HarvestableCrop(Seed seed, bool IsFertilized)
     {
-        GameManager.Instance.HarvestedCrops.Add(this);
-        soil.crop = null;
-        enabled = false;
+        this.seed = seed;
+        DaysLeft = seed.GrowthTime;
+        isFertilized = IsFertilized;
     }
+    
+    public double Value => isFertilized ? value * 1.5 : value;
 }

@@ -56,7 +56,6 @@ public class Movement : MonoBehaviour
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
-        Debug.Log(verticalInput.ToString());
 
         if (Input.GetKey(jumpKey) && readyToJump && grounded)
         {

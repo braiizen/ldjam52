@@ -39,6 +39,17 @@ public class InventoryManager : GenericSingletonClass<InventoryManager>
          Cursor.lockState = openInventory ? CursorLockMode.None : CursorLockMode.Locked;
          Time.timeScale = openInventory ? 0f : 1f;
       }
+      
+      if (Input.GetMouseButtonDown(0))
+      {
+         if (GameManager.Instance.Selection != null)
+         {
+            var heldItem = GetSelectedItem(false);
+            var interactable = GameManager.Instance.Selection.GetComponent<IInteract>();
+            bool interacted = interactable.TryInteract(heldItem);
+            GetSelectedItem(true);
+         }
+      }
    }
 
    void ChangeSelectedSlot(int newValue)
@@ -59,7 +70,7 @@ public class InventoryManager : GenericSingletonClass<InventoryManager>
       if (itemInSlot != null)
       {
          Item item = itemInSlot.item;
-         if (use)
+         if (use && item.consumable)
          {
             itemInSlot.count--;
             if (itemInSlot.count <= 0)
@@ -71,6 +82,8 @@ public class InventoryManager : GenericSingletonClass<InventoryManager>
                itemInSlot.RefreshCount();
             }
          }
+
+         return item;
       }
       
       return null;

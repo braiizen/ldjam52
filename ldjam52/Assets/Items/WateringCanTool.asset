@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 802eec588ab4f0f4791b287e371ef388, type: 3}
-  m_Name: DiggingTool
+  m_Name: WateringCanTool
   m_EditorClassIdentifier: 
   type: 0
-  actionType: 0
+  actionType: 1
   stackable: 0
   maxStack: 1
-  image: {fileID: 21300000, guid: 08074cbda6268ca4d9fe1a37467032ad, type: 3}
+  image: {fileID: 21300000, guid: 69899ed144c8eea4baea48b858b37746, type: 3}
