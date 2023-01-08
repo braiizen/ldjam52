@@ -1,5 +1,6 @@
+using System;
 using System.Collections.Generic;
-using Managers;
+using UnityEngine;
 
 public class GameManager : GenericSingletonClass<GameManager>
 {
@@ -11,7 +12,7 @@ public class GameManager : GenericSingletonClass<GameManager>
         Soils = new List<Soil>();
         HarvestedCrops = new List<HarvestableCrop>();
     }
-    
+
     public void AddSoil(Soil soil)
     {
         Soils.Add(soil);

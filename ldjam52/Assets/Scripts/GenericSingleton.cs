@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
-namespace Managers
-{
+
     public class GenericSingletonClass<T> : MonoBehaviour where T : Component
     {
         private static T instance;
@@ -28,4 +27,3 @@ namespace Managers
             }
         }
     }
-}
