@@ -12,6 +12,6 @@ public class Door : MonoBehaviour ,IInteractable
 
         Debug.Log("Going to next day.");
         GameManager.Instance.EndDay();
-        return true;
+        return false;
     }
 }

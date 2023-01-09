@@ -10,6 +10,8 @@ public class Soil : MonoBehaviour, IInteractable
     private SpriteRenderer plantSprite;
     private string _prompt;
 
+    public Item EatenCrop;
+
     private void Awake()
     {
         plantSprite = GetComponentInChildren<SpriteRenderer>();
@@ -34,9 +36,9 @@ public class Soil : MonoBehaviour, IInteractable
         {
             if (isWatered)
             {
-                int daysReduced = crop.isFertilized ? 2 : 1;
-            
+                int daysReduced = 1;
                 crop.DecreaseDaysLeft(daysReduced);
+                plantSprite.sprite = plantedSeed.PlantSprites[plantedSeed.GrowthTime-crop.DaysLeft];
             }
 
             Debug.Log(name + ": " + crop.cropType + " has " + crop.DaysLeft + " days left.");
@@ -50,13 +52,26 @@ public class Soil : MonoBehaviour, IInteractable
 
     public bool Harvest()
     {
-        bool harvested = InventoryManager.Instance.AddItem(crop.isFertilized
-            ? plantedSeed.FertilizedCrop
-            : plantedSeed.Crop);
+        Item cropToHarvest;
+
+        if (crop.wasAttacked)
+        {
+            cropToHarvest = EatenCrop;
+        } else if (crop.isFertilized)
+        {
+            cropToHarvest = plantedSeed.FertilizedCrop;
+        }
+        else
+        {
+            cropToHarvest = plantedSeed.Crop;
+        }
+        
+        bool harvested = InventoryManager.Instance.AddItem(cropToHarvest);
 
         if (harvested)
         {
             Debug.Log(name + " harvested.");
+            AudioManager.Instance.PlayHarvestClip();
             plantedSeed = null;
             crop = null;
             plantSprite.enabled = false;
@@ -66,13 +81,26 @@ public class Soil : MonoBehaviour, IInteractable
         return harvested;
     }
 
+    public void Attack()
+    {
+        crop.wasAttacked = true;
+        updatePrompt();
+    }
+
     private void updatePrompt()
     {
         if (crop != null)
         {
-            _prompt = @$"{crop.cropType.ToString()}
+            if (crop.wasAttacked)
+            {
+                _prompt = "Plant looks half eaten...did the rats eat it at night?";
+            }
+            else
+            {
+                _prompt = @$"{CropString(crop.cropType)}
 Days till mature: {crop.DaysLeft}
 Watered: {isWatered}";
+            }
         }
         else
         {
@@ -80,6 +108,27 @@ Watered: {isWatered}";
 Fertilized: {isFertilized}
 Watered: {isWatered}";
         }
+    }
+
+    public string CropString(CropType cropType)
+    {
+        switch (cropType)
+        {
+            case CropType.Turnip:
+                return "Turnip";
+            case CropType.Carrot:
+                return "Carrot";
+            case CropType.Corn:
+                return "Corn";
+            case CropType.Pumpkin:
+                return "Pumpkin";
+            case CropType.Strawberry:
+                return "Strawberry";
+            case CropType.Sunflower:
+                return "Sunflower";
+        }
+
+        return null;
     }
 
 
@@ -107,14 +156,13 @@ Watered: {isWatered}";
                 case ActionType.Dig:
                     if (crop != null)
                         return false;
-                    isTilled = true;
-                    updatePrompt();
-                    Debug.Log(name + " tilled.");
+                    Dig();
                     return true;
                 
                 case ActionType.Water:
                     isWatered = true;
                     updatePrompt();
+                    AudioManager.Instance.PlayPouringClip();
                     Debug.Log(name + " watered.");
                     return true;
                 
@@ -126,6 +174,14 @@ Watered: {isWatered}";
         }
 
         return false;
+    }
+
+    private void Dig()
+    {
+        isTilled = true;
+        updatePrompt();
+        AudioManager.Instance.PlayDigClip();
+        Debug.Log(name + " tilled.");
     }
 }
 

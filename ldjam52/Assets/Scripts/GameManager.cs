@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 public class GameManager : GenericSingletonClass<GameManager>
 {
@@ -17,6 +19,8 @@ public class GameManager : GenericSingletonClass<GameManager>
     public GameObject[] Hives;
     public GameObject[] ChickenCoops;
     public GameObject Cat;
+    public GameObject ChickenPrefab;
+    public GameObject PlayerSpawnPoint;
 
     private int[] GardenBedPrices = { 200, 400, 800 };
     private int CatPrice = 250;
@@ -107,6 +111,28 @@ public class GameManager : GenericSingletonClass<GameManager>
     {
         Debug.Log("Ending day.");
         EndDayEvent?.Invoke();
+        if (!Cat.activeInHierarchy)
+        {
+            var soils = FindObjectsOfType<Soil>();
+            var soil = GetSoilWithCrop(soils);
+            if (soil != null)
+            {
+                soil.Attack();
+            }
+        }
+    }
+
+    private Soil GetSoilWithCrop(Soil[] soils)
+    {
+        foreach (Soil soil in soils)
+        {
+            if (soil.crop != null)
+            {
+                return soil;
+            }
+        }
+
+        return null;
     }
 
     public void TryBuyGarden()
@@ -155,6 +181,7 @@ public class GameManager : GenericSingletonClass<GameManager>
         if (InventoryManager.Instance.money >= ChickenCoopPrices[chickenCoopLevel])
         {
             ChickenCoops[chickenCoopLevel].gameObject.SetActive(true);
+            Instantiate(ChickenPrefab, PlayerSpawnPoint.transform);
             InventoryManager.Instance.UpdateMoney( ChickenCoopPrices[chickenCoopLevel] * -1);
             chickenCoopLevel++;
             if (chickenCoopLevel > ChickenCoopPrices.Length - 1)
@@ -162,5 +189,10 @@ public class GameManager : GenericSingletonClass<GameManager>
             else
                 ChickenCoopButtonText.text = "Buy Chicken: " + ChickenCoopPrices[chickenCoopLevel];
         }
+    }
+    
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }

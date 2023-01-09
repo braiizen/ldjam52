@@ -21,7 +21,6 @@
         {
             if (instance == null) {
                 instance = this as T;
-                DontDestroyOnLoad (this.gameObject);
             } else {
                 if (instance.gameObject != this.gameObject)
                 {

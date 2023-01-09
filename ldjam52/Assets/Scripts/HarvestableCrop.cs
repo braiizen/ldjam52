@@ -9,13 +9,15 @@ public class HarvestableCrop
     public int DaysLeft;
     public CropType cropType;
     public Seed seed;
+    public bool wasAttacked;
 
     public HarvestableCrop(Seed seed, bool IsFertilized)
     {
         this.seed = seed;
         DaysLeft = seed.GrowthTime;
         isFertilized = IsFertilized;
-        Debug.Log("Planted crop: " + seed.cropType);
+        cropType = seed.cropType;
+        Debug.Log("Planted crop: " + cropType);
     }
     
     public double Value => isFertilized ? value * 1.5 : value;

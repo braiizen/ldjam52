@@ -20,6 +20,6 @@ public class Cat : MonoBehaviour, IInteractable
         meow.pitch = Random.Range(0.5f, 1.5f);
         meow.Play();
         ChangePrompt();
-        return true;
+        return false;
     }
 }

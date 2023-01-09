@@ -16,6 +16,7 @@ public class MoneyText : MonoBehaviour
 
     private void UpdateText()
     {
+        AudioManager.Instance.PlayBuyClip();
         text.text = InventoryManager.Instance.money.ToString();
     }
 }

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef9e295ce9b21fc4e81c7e451090d4e3, type: 3}
+  m_Name: CarrotSeed
+  m_EditorClassIdentifier: 
+  GrowthTime: 4
+  cropType: 4
+  value: 10
+  PlantSprites:
+  - {fileID: 1215787608, guid: 14b34f4fdb0aa564fbe0b31284c09eb2, type: 3}
+  - {fileID: 1215787608, guid: 14b34f4fdb0aa564fbe0b31284c09eb2, type: 3}
+  - {fileID: 502107582, guid: 14b34f4fdb0aa564fbe0b31284c09eb2, type: 3}
+  - {fileID: 502107582, guid: 14b34f4fdb0aa564fbe0b31284c09eb2, type: 3}
+  - {fileID: -1883821786, guid: 14b34f4fdb0aa564fbe0b31284c09eb2, type: 3}
+  Crop: {fileID: 11400000, guid: ba38f0f442ca0d146878cdb84b3abda6, type: 2}
+  FertilizedCrop: {fileID: 11400000, guid: a88c612e27e201c41bf1e4ddec5ee658, type: 2}

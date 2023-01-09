@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef9e295ce9b21fc4e81c7e451090d4e3, type: 3}
+  m_Name: CornSeed
+  m_EditorClassIdentifier: 
+  GrowthTime: 10
+  cropType: 2
+  value: 5
+  PlantSprites:
+  - {fileID: 1778641853, guid: dad2f29df9ef38c4497c762450bf232b, type: 3}
+  - {fileID: -699230994, guid: dad2f29df9ef38c4497c762450bf232b, type: 3}
+  - {fileID: -699230994, guid: dad2f29df9ef38c4497c762450bf232b, type: 3}
+  - {fileID: -699230994, guid: dad2f29df9ef38c4497c762450bf232b, type: 3}
+  - {fileID: -699230994, guid: dad2f29df9ef38c4497c762450bf232b, type: 3}
+  - {fileID: 934362451, guid: dad2f29df9ef38c4497c762450bf232b, type: 3}
+  - {fileID: 934362451, guid: dad2f29df9ef38c4497c762450bf232b, type: 3}
+  - {fileID: 934362451, guid: dad2f29df9ef38c4497c762450bf232b, type: 3}
+  - {fileID: 934362451, guid: dad2f29df9ef38c4497c762450bf232b, type: 3}
+  - {fileID: 934362451, guid: dad2f29df9ef38c4497c762450bf232b, type: 3}
+  - {fileID: 2097714473, guid: dad2f29df9ef38c4497c762450bf232b, type: 3}
+  Crop: {fileID: 11400000, guid: cdbe2006dbc72124e8f0e39276210236, type: 2}
+  FertilizedCrop: {fileID: 11400000, guid: 9ed8b1bfa1e516147a9db5ce25fd89c0, type: 2}

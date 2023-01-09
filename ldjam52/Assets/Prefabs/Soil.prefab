@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 82720a350135b8d428b44aa191f08f78, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -116,6 +116,7 @@ MonoBehaviour:
   isFertilized: 0
   isTilled: 0
   plantedSeed: {fileID: 0}
+  EatenCrop: {fileID: 11400000, guid: 1b901fee25288d344889a1080d633b17, type: 2}
 --- !u!114 &847895129535206063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,7 +243,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
 --- !u!114 &7928359451772346112

@@ -5,7 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: b9aad98e6726bbb4b92ff868f1b53aa8
+  - enabled: 1
+    path: Assets/Scenes/RooftopGarden.unity
+    guid: 57225c57836d17142acb3259c7f8bbe3
   m_configObjects: {}

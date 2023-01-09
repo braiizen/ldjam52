@@ -16,6 +16,9 @@ MonoBehaviour:
   cropType: 1
   value: 5
   PlantSprites:
-  - {fileID: 1342426243, guid: 2a7ed66aeff3aff4e83696b47ed69414, type: 3}
+  - {fileID: 251959270, guid: d4ecf420b49c5334ea480499a932b0d8, type: 3}
+  - {fileID: -1418262798, guid: d4ecf420b49c5334ea480499a932b0d8, type: 3}
+  - {fileID: -1418262798, guid: d4ecf420b49c5334ea480499a932b0d8, type: 3}
+  - {fileID: 1333860187, guid: d4ecf420b49c5334ea480499a932b0d8, type: 3}
   Crop: {fileID: 11400000, guid: dcca3fb2cd5fec4409df749a3674fb5a, type: 2}
-  FertilizedCrop: {fileID: 0}
+  FertilizedCrop: {fileID: 11400000, guid: a88c612e27e201c41bf1e4ddec5ee658, type: 2}

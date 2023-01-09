@@ -7,8 +7,11 @@ public class InventoryManager : GenericSingletonClass<InventoryManager>
    public Item[] startItems;
    public GameObject inventoryItemPrefab;
    public GameObject InventoryUI;
+   public GameObject LaptopUI;
+   public GameObject PauseUI;
    public GameObject crosshair;
    public bool openInventory = false;
+   public bool fromLaptop = false;
    public int money = 9999;
    public static event Action UpdatedMoneyEvent;
    
@@ -38,11 +41,25 @@ public class InventoryManager : GenericSingletonClass<InventoryManager>
       if (Input.GetKeyDown(KeyCode.Escape))
       {
          openInventory = !openInventory;
-         crosshair.SetActive(!openInventory);
-         InventoryUI.SetActive(openInventory);
-         Cursor.lockState = openInventory ? CursorLockMode.None : CursorLockMode.Locked;
-         Time.timeScale = openInventory ? 0f : 1f;
+         if (openInventory)
+         {
+            PauseUI.SetActive(true);
+         }
+         fromLaptop = false;
       }
+      
+      crosshair.SetActive(!openInventory);
+      InventoryUI.SetActive(openInventory);
+      LaptopUI.SetActive(fromLaptop);
+      if (!fromLaptop && openInventory)
+      {
+         PauseUI.SetActive(true);
+      } else {
+         PauseUI.SetActive(false);
+      }
+      
+      Cursor.lockState = openInventory ? CursorLockMode.None : CursorLockMode.Locked;
+      Time.timeScale = openInventory ? 0f : 1f;
       
       if (Input.GetMouseButtonDown(0))
       {
@@ -51,8 +68,11 @@ public class InventoryManager : GenericSingletonClass<InventoryManager>
             var heldItem = GetSelectedItem(false);
             var interactable = GameManager.Instance.Selection.GetComponent<IInteractable>();
             bool interacted = interactable.TryInteract(heldItem);
-            if(interacted)
+            if (interacted)
+            {
                GetSelectedItem(true);
+               GameManager.Instance.Stamina -= 5;
+            }
          }
       }
    }
@@ -135,6 +155,7 @@ public class InventoryManager : GenericSingletonClass<InventoryManager>
 
    public void UpdateMoney(int updateAmount)
    {
+
       money += updateAmount;
       UpdatedMoneyEvent?.Invoke();
    }

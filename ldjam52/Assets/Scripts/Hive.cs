@@ -24,6 +24,6 @@ public class Hive : MonoBehaviour, IInteractable
         if (harvestedHoney) return false;
         harvestedHoney = InventoryManager.Instance.AddItem(honey);
         
-        return harvestedHoney;
+        return false;
     }
 }

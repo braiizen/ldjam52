@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerCam : MonoBehaviour
 {
@@ -29,5 +30,11 @@ public class PlayerCam : MonoBehaviour
         
         transform.rotation = Quaternion.Euler(xRotation,yRotation,0);
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+    }
+
+    public void SetSensitivity(Slider sens)
+    {
+        sensX = 500 * sens.value;
+        sensY = 500 * sens.value;
     }
 }
