@@ -6546,10 +6546,13 @@ MonoBehaviour:
   startItems:
   - {fileID: 11400000, guid: 1d2ec0f4e0a4ce84c9ffcfec4a91df62, type: 2}
   - {fileID: 11400000, guid: e95405711c28c5b41abe4c57f06f53ae, type: 2}
-  - {fileID: 11400000, guid: 1d2ec0f4e0a4ce84c9ffcfec4a91df62, type: 2}
   - {fileID: 11400000, guid: 88134a808f14cb34bae643c38ee01227, type: 2}
-  - {fileID: 11400000, guid: 0b0eb55d7527ffb4ca7a602fc0cce2b3, type: 2}
   - {fileID: 11400000, guid: 8766a6b5826639842aa175cbc119716e, type: 2}
+  - {fileID: 11400000, guid: 0b0eb55d7527ffb4ca7a602fc0cce2b3, type: 2}
+  - {fileID: 11400000, guid: 0b0eb55d7527ffb4ca7a602fc0cce2b3, type: 2}
+  - {fileID: 11400000, guid: 0b0eb55d7527ffb4ca7a602fc0cce2b3, type: 2}
+  - {fileID: 11400000, guid: 0b0eb55d7527ffb4ca7a602fc0cce2b3, type: 2}
+  - {fileID: 11400000, guid: 0b0eb55d7527ffb4ca7a602fc0cce2b3, type: 2}
   inventoryItemPrefab: {fileID: 7861332891114751289, guid: d2f8fc3787c3dde4895f56c8e95f6353,
     type: 3}
   InventoryUI: {fileID: 1623235900}
@@ -6558,7 +6561,7 @@ MonoBehaviour:
   crosshair: {fileID: 600044500}
   openInventory: 0
   fromLaptop: 0
-  money: 9999
+  money: 100
   InventorySlots:
   - {fileID: 1111297101}
   - {fileID: 74431896}
@@ -13288,7 +13291,7 @@ PrefabInstance:
     - target: {fileID: 8387027100055739287, guid: aea5ab91ee4b76e49928d6c3e5274d76,
         type: 3}
       propertyPath: m_text
-      value: 'Buy Hive: 100'
+      value: 'Buy Hive: 200'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aea5ab91ee4b76e49928d6c3e5274d76, type: 3}
@@ -21201,7 +21204,7 @@ PrefabInstance:
     - target: {fileID: 8387027100055739287, guid: aea5ab91ee4b76e49928d6c3e5274d76,
         type: 3}
       propertyPath: m_text
-      value: 'Buy Cat: 100'
+      value: 'Buy Cat: 250'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aea5ab91ee4b76e49928d6c3e5274d76, type: 3}
@@ -24734,7 +24737,7 @@ PrefabInstance:
     - target: {fileID: 8387027100055739287, guid: aea5ab91ee4b76e49928d6c3e5274d76,
         type: 3}
       propertyPath: m_text
-      value: 'Buy Garden Bed: 200'
+      value: 'Buy Garden Bed: 300'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aea5ab91ee4b76e49928d6c3e5274d76, type: 3}

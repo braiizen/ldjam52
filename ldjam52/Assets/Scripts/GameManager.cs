@@ -22,7 +22,7 @@ public class GameManager : GenericSingletonClass<GameManager>
     public GameObject ChickenPrefab;
     public GameObject PlayerSpawnPoint;
 
-    private int[] GardenBedPrices = { 200, 400, 800 };
+    private int[] GardenBedPrices = { 300, 400, 400 };
     private int CatPrice = 250;
     private int[] HivePrices = { 200, 400 };
     private int[] ChickenCoopPrices = { 500, 200, 200, 200, 200, 200 };
