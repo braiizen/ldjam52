@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8101054133894446704}
   - component: {fileID: 8101054133894446705}
   - component: {fileID: 6843554623582336261}
+  - component: {fileID: 9156335933138003299}
   m_Layer: 0
   m_Name: Hive
   m_TagString: Interactable
@@ -116,3 +117,16 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &9156335933138003299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8101054133894446707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cc6ec7f24094134b867763fb3bae085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  honey: {fileID: 11400000, guid: abbe3ed91275e294c9c9b0e9cca5e9c0, type: 2}

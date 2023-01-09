@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 802eec588ab4f0f4791b287e371ef388, type: 3}
-  m_Name: TurnipCrop
+  m_Name: Fertilizer
   m_EditorClassIdentifier: 
-  type: 2
+  type: 4
   actionType: 0
   Value: 0
   stackable: 1
   consumable: 1
-  maxStack: 1
-  image: {fileID: 21300000, guid: 724d4f32a68b4a842a8dd8984fbd311c, type: 3}
+  maxStack: 16
+  image: {fileID: 21300000, guid: 372e7b39fc8f34549ac25d8757965a2c, type: 3}
   seedSO: {fileID: 0}

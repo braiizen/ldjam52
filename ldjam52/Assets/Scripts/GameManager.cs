@@ -1,4 +1,8 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -10,7 +14,10 @@ public class GameManager : GenericSingletonClass<GameManager>
     public List<HarvestableCrop> HarvestedCrops;
     public RaycastHit Hit;
     private Transform player;
-    
+    public TextMeshProUGUI tmpPrompt;
+    public int Stamina = 100;
+    public static event Action EndDayEvent;
+
     [FormerlySerializedAs("_selection")] public Transform Selection;
     
     private void Start()
@@ -39,7 +46,7 @@ public class GameManager : GenericSingletonClass<GameManager>
             var selection = Hit.transform;
             if (selection.CompareTag(interactableTag) && Vector3.Distance(selection.position, player.position) < 3.5)
             {
-                Debug.Log(selection.name);
+                /*Debug.Log(selection.name);*/
                 Selection = selection;
             }
         }
@@ -47,6 +54,15 @@ public class GameManager : GenericSingletonClass<GameManager>
         if (Selection != null)
         {
             OnSelect(Selection);
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (Selection != null)
+            {
+                var interactable = Selection.GetComponent<IInteractable>();
+                bool interacted = interactable.TryInteract();
+            }
         }
     }
     
@@ -57,6 +73,12 @@ public class GameManager : GenericSingletonClass<GameManager>
         {
             outline.enabled = true;
         }
+
+        var interactable = selection.GetComponent<IInteractable>();
+        if(interactable != null)
+        {
+            tmpPrompt.text = interactable.InteractPrompt;
+        }
     }
 
     public void OnDeselect(Transform selection)
@@ -66,6 +88,8 @@ public class GameManager : GenericSingletonClass<GameManager>
         {
             outline.enabled = false;
         }
+
+        tmpPrompt.text = "";
     }
     
     public void AddSoil(Soil soil)
@@ -75,12 +99,7 @@ public class GameManager : GenericSingletonClass<GameManager>
 
     public void EndDay()
     {
-        foreach (Soil soil in Soils)
-        {
-            if (soil.crop != null)
-            {
-                soil.UpdateDay();
-            }
-        }
+        Debug.Log("Ending day.");
+        EndDayEvent?.Invoke();
     }
 }

@@ -15,5 +15,7 @@ MonoBehaviour:
   GrowthTime: 3
   cropType: 1
   value: 5
-  PlantSprites: []
+  PlantSprites:
+  - {fileID: 1342426243, guid: 2a7ed66aeff3aff4e83696b47ed69414, type: 3}
   Crop: {fileID: 11400000, guid: dcca3fb2cd5fec4409df749a3674fb5a, type: 2}
+  FertilizedCrop: {fileID: 0}

@@ -45,9 +45,10 @@ public class InventoryManager : GenericSingletonClass<InventoryManager>
          if (GameManager.Instance.Selection != null)
          {
             var heldItem = GetSelectedItem(false);
-            var interactable = GameManager.Instance.Selection.GetComponent<IInteract>();
+            var interactable = GameManager.Instance.Selection.GetComponent<IInteractable>();
             bool interacted = interactable.TryInteract(heldItem);
-            GetSelectedItem(true);
+            if(interacted)
+               GetSelectedItem(true);
          }
       }
    }
