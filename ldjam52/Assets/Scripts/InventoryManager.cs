@@ -27,7 +27,7 @@ public class InventoryManager : GenericSingletonClass<InventoryManager>
 
    private void Update()
    {
-      Cursor.visible = !openInventory;
+      Cursor.visible = openInventory;
       if (Input.inputString != null)
       {
          bool isNumber = int.TryParse(Input.inputString, out int number);
@@ -118,6 +118,25 @@ public class InventoryManager : GenericSingletonClass<InventoryManager>
       }
 
       return false;
+   }
+
+   public void BuyItem(Item item)
+   {
+      if (money >= item.Value * 2)
+      {
+         bool added = AddItem(item);
+         if (added)
+         {
+            money -= item.Value * 2;
+            UpdatedMoneyEvent?.Invoke();
+         }
+      }
+   }
+
+   public void UpdateMoney(int updateAmount)
+   {
+      money += updateAmount;
+      UpdatedMoneyEvent?.Invoke();
    }
 
    public void SellItem(InventoryItem invItem)

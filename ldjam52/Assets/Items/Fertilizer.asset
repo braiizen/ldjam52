@@ -18,5 +18,5 @@ MonoBehaviour:
   stackable: 1
   consumable: 1
   maxStack: 16
-  image: {fileID: 21300000, guid: 372e7b39fc8f34549ac25d8757965a2c, type: 3}
+  image: {fileID: 21300000, guid: e8f4878e37f5b79479da18ae4a079928, type: 3}
   seedSO: {fileID: 0}

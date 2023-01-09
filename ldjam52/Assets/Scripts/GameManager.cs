@@ -12,6 +12,7 @@ public class GameManager : GenericSingletonClass<GameManager>
     private Transform player;
     public TextMeshProUGUI tmpPrompt;
     public int Stamina = 100;
+    public int MaxStamina = 100;
     public GameObject[] GardenBeds;
     public GameObject[] Hives;
     public GameObject[] ChickenCoops;
@@ -114,7 +115,7 @@ public class GameManager : GenericSingletonClass<GameManager>
         if (InventoryManager.Instance.money >= GardenBedPrices[gardenBedLevel])
         {
             GardenBeds[gardenBedLevel].gameObject.SetActive(true);
-            InventoryManager.Instance.money -= GardenBedPrices[gardenBedLevel];
+            InventoryManager.Instance.UpdateMoney(GardenBedPrices[gardenBedLevel] * -1);
             gardenBedLevel++;
             if (gardenBedLevel > GardenBedPrices.Length - 1)
                 GardenBedButtonText.text = "No more garden upgrades.";
@@ -128,7 +129,7 @@ public class GameManager : GenericSingletonClass<GameManager>
         if (InventoryManager.Instance.money >= CatPrice)
         {
             Cat.gameObject.SetActive(true);
-            InventoryManager.Instance.money -= CatPrice;
+            InventoryManager.Instance.UpdateMoney(CatPrice * -1);
             CatButtonText.text = "No more cats. (sorry!)";
         }
     }
@@ -139,7 +140,7 @@ public class GameManager : GenericSingletonClass<GameManager>
         if (InventoryManager.Instance.money >= HivePrices[hiveLevel])
         {
             Hives[hiveLevel].gameObject.SetActive(true);
-            InventoryManager.Instance.money -= HivePrices[hiveLevel];
+            InventoryManager.Instance.UpdateMoney(HivePrices[hiveLevel] * -1);
             hiveLevel++;
             if (hiveLevel > HivePrices.Length - 1)
                 HiveButtonText.text = "No more hive upgrades.";
@@ -154,7 +155,7 @@ public class GameManager : GenericSingletonClass<GameManager>
         if (InventoryManager.Instance.money >= ChickenCoopPrices[chickenCoopLevel])
         {
             ChickenCoops[chickenCoopLevel].gameObject.SetActive(true);
-            InventoryManager.Instance.money -= ChickenCoopPrices[chickenCoopLevel];
+            InventoryManager.Instance.UpdateMoney( ChickenCoopPrices[chickenCoopLevel] * -1);
             chickenCoopLevel++;
             if (chickenCoopLevel > ChickenCoopPrices.Length - 1)
                 ChickenCoopButtonText.text = "No more chicken coop upgrades.";
