@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   actionType: 3
-  Value: 0
+  Value: 20
   stackable: 0
   consumable: 0
   maxStack: 1

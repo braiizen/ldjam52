@@ -1,3 +1,5 @@
+using System;
+using TMPro;
 using UnityEngine;
 
 public class InventoryManager : GenericSingletonClass<InventoryManager>
@@ -7,6 +9,8 @@ public class InventoryManager : GenericSingletonClass<InventoryManager>
    public GameObject InventoryUI;
    public GameObject crosshair;
    public bool openInventory = false;
+   public int money = 9999;
+   public static event Action UpdatedMoneyEvent;
    
    public InventorySlot[] InventorySlots;
 
@@ -114,6 +118,13 @@ public class InventoryManager : GenericSingletonClass<InventoryManager>
       }
 
       return false;
+   }
+
+   public void SellItem(InventoryItem invItem)
+   {
+      money += (invItem.item.Value * invItem.count);
+      UpdatedMoneyEvent?.Invoke();
+      Destroy(invItem.gameObject);
    }
 
    private void SpawnNewItem(Item item, InventorySlot inventorySlot)

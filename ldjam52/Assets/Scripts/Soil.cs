@@ -12,8 +12,6 @@ public class Soil : MonoBehaviour, IInteractable
 
     private void Awake()
     {
-        Debug.Log("Adding soil to list: " + this.name);
-        GameManager.Instance.AddSoil(this);
         plantSprite = GetComponentInChildren<SpriteRenderer>();
         updatePrompt();
         GameManager.EndDayEvent += UpdateDay;

@@ -75,8 +75,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -227,6 +227,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 7144610696636117986}
   countText: {fileID: 7700831804007755499}
-  item: {fileID: 0}
   count: 1
+  item: {fileID: 0}
   parentAfterDrag: {fileID: 0}
